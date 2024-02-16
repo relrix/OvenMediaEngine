@@ -193,6 +193,12 @@ install_nvcc_hdr() {
     fi
 }
 
+install_patch_ffmpeg()
+{
+	curl -s https://raw.githubusercontent.com/relrix/OvenMediaEngine/master/misc/patch/ffmpeg_binutils.patch -o $1
+	patch -s $1/libavcodec/x86/mathops.h < $1/ffmpeg_binutils.patch
+
+}
 install_ffmpeg()
 {
     # If you need debug symbols, put the options below.
@@ -539,15 +545,15 @@ else
     echo "Please refer to manual installation page"
 fi
 
-install_nasm
-install_openssl
-install_libsrtp
-install_libsrt
-install_libopus
-install_libopenh264
-install_libvpx
-install_fdk_aac
-install_nvcc_hdr
+#install_nasm
+#install_openssl
+#install_libsrtp
+#install_libsrt
+#install_libopus
+#install_libopenh264
+#install_libvpx
+#install_fdk_aac
+#install_nvcc_hdr
 install_ffmpeg
 install_jemalloc
 install_libpcre2
