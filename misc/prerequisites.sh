@@ -195,7 +195,7 @@ install_nvcc_hdr() {
 
 install_patch_ffmpeg()
 {
-	curl -s https://raw.githubusercontent.com/relrix/OvenMediaEngine/master/misc/patch/ffmpeg_binutils.patch -o $1
+	curl -s https://raw.githubusercontent.com/relrix/OvenMediaEngine/master/misc/patch/ffmpeg_binutils.patch -o $1/ffmpeg_binutils.patch
 	patch -s $1/libavcodec/x86/mathops.h < $1/ffmpeg_binutils.patch
 
 }
